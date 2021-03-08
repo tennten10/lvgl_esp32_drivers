@@ -52,6 +52,7 @@ void ili9341_flush(lv_disp_drv_t * drv, const lv_area_t * area, lv_color_t * col
 void ili9341_enable_backlight(bool backlight);
 void ili9341_sleep_in(void);
 void ili9341_sleep_out(void);
+void ili9341_update(lv_disp_drv_t *drv);
 
 /**********************
  *      MACROS

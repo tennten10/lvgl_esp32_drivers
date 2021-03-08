@@ -239,3 +239,15 @@ static void ili9341_set_orientation(uint8_t orientation)
     ili9341_send_cmd(0x36);
     ili9341_send_data((void *) &data[orientation], 1);
 }
+
+void ili9341_update(lv_disp_drv_t *drv)
+{
+    lv_disp_rot_t rotation = (lv_disp_rot_t) drv->rotated;
+    ESP_LOGI(TAG, "Rotating display with %u", rotation);
+
+    /* This values rotates the display in 90 degrees clockwise steps */
+    uint8_t rotation_cmd[] = {0x48, 0x28, 0x88, 0xE8};
+
+    ili9341_send_cmd(0x36);
+    ili9341_send_data((void *) &rotation_cmd[rotation], 1);
+}
