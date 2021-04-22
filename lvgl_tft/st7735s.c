@@ -215,6 +215,7 @@ static void st7735s_set_orientation(uint8_t orientation)
     st7735s_send_data((void *) &data[orientation], 1);
 }
 
+/* Removed by Mike because it was going to the compiler even though it's not defined in MenuConfig
 static void i2c_master_init()
 {
 	i2c_config_t i2c_config = {
@@ -267,3 +268,4 @@ static void axp192_sleep_out()
 {
 	axp192_write_byte(0x12, 0x4d);
 }
+*/
